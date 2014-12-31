@@ -1,0 +1,50 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/randowMovesMain.cs">
+    <Files>
+      <File FileName="Assets/Scripts/blobEmitter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/photo.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/instantanciateEverybody.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UnityOSC-master/src/OSC/OSCServer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/triggers.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/oscMain.cs" Line="111" Column="41" />
+      <File FileName="Assets/Scripts/blobEmitter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/randowMovesMain.cs" Line="40" Column="13" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="UnityOSC-master" expanded="True">
+                <Node name="src" expanded="True">
+                  <Node name="OSC" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="randowMovesMain.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/UnityOSC-master/src/OSCHandler.cs" line="316" />
+      <Breakpoint enabled="false" file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/oscMain.cs" line="105" />
+      <Breakpoint enabled="false" file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/oscMain.cs" line="90" />
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/oscMain.cs" line="125" />
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/randomMovingEmitters.cs" line="30" />
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/instantanciateEverybody.cs" line="15" />
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/collider.cs" line="19" />
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/collider.cs" line="23" />
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/collider.cs" line="27" />
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/photo.cs" line="19" />
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/photo.cs" line="50" />
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Essai 01/Assets/Scripts/blobEmitter.cs" line="149" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="Assets/Scripts/Mine/UnityOSC-master/src/OSCHandler.cs" line="212" offsetX="407" offsetY="2340" expression="packet.Data" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+</Properties>
