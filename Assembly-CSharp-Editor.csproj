@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{1D3434FB-3B03-8429-351B-08067A3E1A17}</ProjectGuid>
+	<ProjectGuid>{A8BF4928-84EB-B4A5-F9BD-C7B4A0D541E8}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{5FD3425E-2958-840D-249D-652B28CA73B1}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{8BDDA009-A9B9-4121-DFE1-1C23A92CBE95}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

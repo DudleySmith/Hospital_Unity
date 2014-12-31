@@ -1,0 +1,22 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UnityOSC-master/tests/oscControl.cs">
+    <Files>
+      <File FileName="Assets/Scripts/blobEmitter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/instantanciateEverybody.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/movingEmitter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UnityOSC-master/tests/oscControl.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../Essai 01/Assets/Scripts/Mine/UnityOSC-master/src/OSCHandler.cs" line="212" offsetX="407" offsetY="2340" expression="packet.Data" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+</Properties>

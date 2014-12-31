@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{5FD3425E-2958-840D-249D-652B28CA73B1}</ProjectGuid>
+	<ProjectGuid>{8BDDA009-A9B9-4121-DFE1-1C23A92CBE95}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -61,7 +61,6 @@
      <Compile Include="Assets\Scripts\randowMovesMain.cs" />
      <Compile Include="Assets\Scripts\triggers.cs" />
      <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
-     <Compile Include="Assets\Triggers.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
