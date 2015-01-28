@@ -29,21 +29,21 @@ public class oscMain : MonoBehaviour
 {
 	
 		private Dictionary<string, ServerLog> servers;
-		private Dictionary<string, blobEmitter> blobEmitters;
+		private Dictionary<string, baseMove> movingBlobs;
 
-		public blobEmitter PrefabCam1;
-		public blobEmitter PrefabCam2;
-		public blobEmitter PrefabCam3;
+		public baseMove prefabCam1;
+		public baseMove prefabCam2;
+		public baseMove prefabCam3;
 		
-		public float 	LimitX;
-		public float 	LimitZ;
+		public float 	LimitX = 10;
+		public float 	LimitZ = 10;
 		public float 	BirthPlaneY;
 		public double	WorldLifeTimeMillis;
-
+		
 		private long lastTimeStamp = DateTime.UtcNow.Ticks;
 
 		// Script initialization
-		void Start ()
+		protected void Start ()
 		{	
 				OSCHandler.Instance.Init (); //init OSC
 				OSCHandler.Instance.CreateServer ("cam1", 1551);
@@ -51,13 +51,13 @@ public class oscMain : MonoBehaviour
 				OSCHandler.Instance.CreateServer ("cam3", 1553);
 				// Instantiate arrays
 				servers = new Dictionary<string, ServerLog> ();
-				blobEmitters = new Dictionary<string, blobEmitter> ();
+				movingBlobs = new Dictionary<string, baseMove> ();
 		}
 
 		// NOTE: The received messages at each server are updated here
 		// Hence, this update depends on your application architecture
 		// How many frames per second or Update() calls per frame?
-		void Update ()
+		protected void Update ()
 		{
 		
 				OSCHandler.Instance.UpdateLogs ();
@@ -102,7 +102,7 @@ public class oscMain : MonoBehaviour
 				// Splitting, finding blob number
 				char[] seps = {'/'};
 				String[] addresses = _m.Address.Split (seps, StringSplitOptions.RemoveEmptyEntries);
-				if (addresses [1].Equals ("blobs")) {
+				if (addresses [1].Equals ("blobs") && _m.Data.Count == 4) {
 		
 						// Analysing
 						string key = addresses [0] + "_" + _m.Data [0].ToString ();
@@ -116,29 +116,29 @@ public class oscMain : MonoBehaviour
 						// Search and manage which blobs are awake
 						//if(blobEmitters.ContainsKey(key)){
 						// exists -> update position or destroy
-						blobEmitter value;
-						if (blobEmitters.TryGetValue (key, out value)) {
+						baseMove value;
+						if (movingBlobs.TryGetValue (key, out value)) {
 								if (value != null) {	
 										// Move it
 										value.Position = calculatedPosition;
 										value.Radius = radius;
 										value.LastMove = DateTime.UtcNow;
 								} else {
-										blobEmitters.Remove (key);
+										movingBlobs.Remove (key);
 								}
 						} else {
 								// does not exist -> Create
-								blobEmitter newBlobEmit = new blobEmitter ();
+								baseMove newBlobEmit = new partMove ();
 								
 								// Instantiate any of prefab
 								if (addresses [0].Equals ("cam1")) {
-										newBlobEmit = Instantiate (PrefabCam1) as blobEmitter;
+										newBlobEmit = Instantiate (prefabCam1) as baseMove;
 
 								} else if (addresses [0].Equals ("cam2")) {
-										newBlobEmit = Instantiate (PrefabCam2) as blobEmitter;
+										newBlobEmit = Instantiate (prefabCam2) as baseMove;
 
 								} else if (addresses [0].Equals ("cam3")) {
-										newBlobEmit = Instantiate (PrefabCam3) as blobEmitter;
+										newBlobEmit = Instantiate (prefabCam3) as baseMove;
 
 								}
 
@@ -153,7 +153,7 @@ public class oscMain : MonoBehaviour
 										newBlobEmit.LastMove = DateTime.UtcNow;
 										newBlobEmit.lifeTimeMillis = WorldLifeTimeMillis;
 										// Add in array
-										blobEmitters.Add (key, newBlobEmit);
+										movingBlobs.Add (key, newBlobEmit);
 								}
 
 								//Debug.Log (String.Format ("BLOB. Number={0} X={1} Z={2} Y (constant) ={3} Radius={4}", key, calculatedPosition.x, calculatedPosition.z, calculatedPosition.y, radius));

@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 
 public class randowMovesMain : MonoBehaviour
 {
 
-		public blobEmitter randomEmitter;
+		public partMove randomEmitter;
 	
 		// Use this for initialization
 		void Start ()
@@ -28,7 +28,7 @@ public class randowMovesMain : MonoBehaviour
 	
 		void InstanciateOne ()
 		{
-				blobEmitter instance = Instantiate (randomEmitter) as blobEmitter;
+				partMove instance = Instantiate (randomEmitter) as partMove;
 				instance.IsRandomMove = true;
 				instance.Velocity = new Vector3 (UnityEngine.Random.Range (-1f, 1f), 0f, UnityEngine.Random.Range (-1f, 1f));
 				instance.LastMove = DateTime.UtcNow;

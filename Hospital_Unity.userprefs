@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/baseMove.cs">
+    <Files>
+      <File FileName="Assets/Scripts/oscMain.cs" Line="44" Column="1" />
+      <File FileName="Assets/Scripts/ropeMove.cs" Line="6" Column="3" />
+      <File FileName="Assets/Scripts/baseMove.cs" Line="89" Column="3" />
+      <File FileName="Assets/Scripts/oscMainRope.cs" Line="10" Column="23" />
+      <File FileName="Assets/Scripts/partMove.cs" Line="12" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
