@@ -34,10 +34,22 @@ public class baseMove : MonoBehaviour
 						return _velocity;
 				}
 				set {
-						_velocity = value;
+						// TO DO : More efficient smooth velocity (lerp, etc.)
+						_velocity = 0.5f * _velocity + 0.5f * value;
 				}
 		}
-	
+		
+		public float Angle {
+				set {
+						Vector3 newAngle = new Vector3 (0, value, 0);
+						//Vector3 oldAngle = transform.localEulerAngles;
+						
+						this.gameObject.transform.localEulerAngles = newAngle;
+						
+						//this.gameObject.transform.Rotate (new Vector3 (0, value, 0));
+				}
+		}
+		
 		// Exposes graphics property
 		private float _radius;
 		public float Radius {
@@ -94,6 +106,9 @@ public class baseMove : MonoBehaviour
 		// Update is called once per frame
 		protected void Update ()
 		{
+				// Move more naturally
+				this.gameObject.transform.Translate (_velocity * Time.deltaTime);
+				
 				// Calculate and Display lifetime
 				life = DateTime.UtcNow.Subtract (LastMove).TotalMilliseconds;
 				if (life > lifeTimeMillis) {
@@ -116,8 +131,13 @@ public class baseMove : MonoBehaviour
 								|| screenPosition.y <= 0 
 								|| screenPosition.x >= screenLimits.x
 								|| screenPosition.y >= screenLimits.y) {
+								
 								Stop = true;
-								Debug.Log (gameObject.name + ": No more visible -> imminent death");
+								
+								Debug.Log (gameObject.name 
+										+ ": Screen position=" + screenPosition.ToString ()
+										+ ": Screen limits=" + screenLimits.ToString ()
+										+ ": No more visible -> imminent death");
 						}
 			
 				} else {

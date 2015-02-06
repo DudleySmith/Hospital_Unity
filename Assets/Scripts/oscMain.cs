@@ -102,27 +102,68 @@ public class oscMain : MonoBehaviour
 				// Splitting, finding blob number
 				char[] seps = {'/'};
 				String[] addresses = _m.Address.Split (seps, StringSplitOptions.RemoveEmptyEntries);
-				if (addresses [1].Equals ("blobs") && _m.Data.Count == 4) {
+				if (addresses [1].Equals ("blobs") && _m.Data.Count == 7) {
 		
-						// Analysing
-						string key = addresses [0] + "_" + _m.Data [0].ToString ();
+						// Analysing ----------------------------------------------------
+						string receivedBlobNumber = _m.Data [0].ToString ();
+						
+						// TO DO : use map and some UI parameters
+						Vector2 recPosition = new Vector2 ((float)_m.Data [1], 1.0f - (float)_m.Data [2]);
+						float recRadius = (float)_m.Data [3];
+						Vector2 recVelocity = new Vector2 ((float)_m.Data [4], 1.0f - (float)_m.Data [5]);
+						float recAngle = (float)_m.Data [6];
+						
+						// Calculation -------------------------------------------
+						string key = addresses [0] + "_" + receivedBlobNumber;
+						
+						// Position is relative to screen ------------------------
 						Vector3 calculatedPosition = new Vector3 ();
-						calculatedPosition.x = (float)_m.Data [1] * LimitX;
-						calculatedPosition.y = BirthPlaneY;
-						calculatedPosition.z = (float)_m.Data [2] * LimitZ;
-
-						float radius = (float)_m.Data [3];
-
+						Vector3 calculatedVelocity = new Vector3 ();
+						
+						// Check the postion relative to resolution and stop it ---
+						GameObject sceneCamObj = GameObject.Find ("MainCamera");
+						if (sceneCamObj != null) {
+								// Transform screen to world coordinates
+								Vector3 screenPosition = new Vector3 (
+					(float)(recPosition.x * sceneCamObj.camera.pixelWidth),
+					(float)(recPosition.y * sceneCamObj.camera.pixelHeight),
+					0);
+				
+								calculatedPosition = sceneCamObj.camera.ScreenToWorldPoint (screenPosition);
+								calculatedPosition.y = BirthPlaneY;
+								
+								// Should output the real dimensions of scene viewport
+								/*
+								Vector3 screenVelocity = new Vector3 (
+					(float)(receivedVelocity.x * sceneCamObj.camera.pixelWidth),
+					(float)(receivedVelocity.y * sceneCamObj.camera.pixelHeight),
+					0);
+				
+								calculatedVelocity = sceneCamObj.camera.ScreenToWorldPoint (screenVelocity);
+								*/
+								calculatedVelocity.Set (recVelocity.x, 0, recVelocity.y);
+								
+								//calculatedPosition.x = (2 * receivedPosition.x - 1) * LimitX;
+								//calculatedPosition.y = BirthPlaneY;
+								//calculatedPosition.z = (1 - 2 * receivedPosition.z) * LimitZ;
+						}
+						
+						//float calcRotation = Vector2.Angle (new Vector2 (1, 1), new Vector2 (calculatedVelocity.x, calculatedVelocity.y));
+						float calcRotation = recAngle;
+						Debug.Log (key + " : Vel=" + calculatedVelocity + " : Ang=" + calcRotation);
+						
 						// Search and manage which blobs are awake
 						//if(blobEmitters.ContainsKey(key)){
 						// exists -> update position or destroy
-						baseMove value;
-						if (movingBlobs.TryGetValue (key, out value)) {
-								if (value != null) {	
+						baseMove blobValue;
+						if (movingBlobs.TryGetValue (key, out blobValue)) {
+								if (blobValue != null) {	
 										// Move it
-										value.Position = calculatedPosition;
-										value.Radius = radius;
-										value.LastMove = DateTime.UtcNow;
+										blobValue.Position = calculatedPosition;
+										blobValue.Velocity = calculatedVelocity;
+										blobValue.Radius = recRadius;
+										blobValue.LastMove = DateTime.UtcNow;
+										blobValue.Angle = calcRotation;
 								} else {
 										movingBlobs.Remove (key);
 								}
@@ -146,8 +187,10 @@ public class oscMain : MonoBehaviour
 								if (newBlobEmit != null) {
 										// Roll it
 										//Instantiate(newBlobEmit);
-										newBlobEmit.Position = calculatedPosition;
-										newBlobEmit.Radius = radius;
+										//newBlobEmit.Position = calculatedPosition;
+										newBlobEmit.Velocity = calculatedVelocity;
+										newBlobEmit.Angle = calcRotation;
+										newBlobEmit.Radius = recRadius;
 										newBlobEmit.gameObject.name = "blob_" + key;
 										newBlobEmit.comment = "Blob:" + key;
 										newBlobEmit.LastMove = DateTime.UtcNow;

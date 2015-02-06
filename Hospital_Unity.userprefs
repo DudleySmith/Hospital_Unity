@@ -2,15 +2,21 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/baseMove.cs">
     <Files>
-      <File FileName="Assets/Scripts/oscMain.cs" Line="44" Column="1" />
-      <File FileName="Assets/Scripts/ropeMove.cs" Line="6" Column="3" />
-      <File FileName="Assets/Scripts/baseMove.cs" Line="89" Column="3" />
-      <File FileName="Assets/Scripts/oscMainRope.cs" Line="10" Column="23" />
-      <File FileName="Assets/Scripts/partMove.cs" Line="12" Column="2" />
+      <File FileName="Assets/Scripts/oscMain.cs" Line="112" Column="7" />
+      <File FileName="Assets/Scripts/oscMainRope.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/oscMain.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ropeMove.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/baseMove.cs" Line="45" Column="9" />
+      <File FileName="Assets/Scripts/partMove.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UnityOSC-master/src/OSC/OSCServer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UnityOSC-master/src/OSC/OSCBundle.cs" Line="89" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Hospital_Unity/Assets/Scripts/oscMain.cs" line="185" />
+      <Breakpoint file="/Volumes/Dude_Work/Projets/2014_05_03 FDL 2014 PetitHomme/3D/Hospital_Unity/Assets/Scripts/oscMain.cs" line="161" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
